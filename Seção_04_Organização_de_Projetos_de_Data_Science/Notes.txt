@@ -1,0 +1,1 @@
+Criar pastas com a data YYYYMMDD e colocar o nome.
