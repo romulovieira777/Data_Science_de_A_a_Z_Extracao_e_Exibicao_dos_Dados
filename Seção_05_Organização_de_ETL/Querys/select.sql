@@ -1,0 +1,5 @@
+SELECT
+	*
+FROM
+	[DS_TRAINNING].[dbo].[RAW_ClientesBanco_20170805]
+GO
