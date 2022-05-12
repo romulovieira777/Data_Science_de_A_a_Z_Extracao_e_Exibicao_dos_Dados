@@ -1,0 +1,3 @@
+TRUNCATE TABLE
+	[DS_TRAINNING].[dbo].[RAW_ClientesAfrica_20170810]
+GO
