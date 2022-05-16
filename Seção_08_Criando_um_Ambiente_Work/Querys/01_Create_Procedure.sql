@@ -13,7 +13,7 @@ GO
 -- =============================================
 
 ALTER PROCEDURE
-	SP_WRK_CLIENTES	
+	[dbo].[SP_WRK_CLIENTES]
 AS
 BEGIN
 
@@ -23,13 +23,13 @@ BEGIN
 
 IF OBJECT_ID('[WRK_CLIENTES]') IS NOT NULL
 DROP TABLE
-	[DS_TRAINNING].[dbo].[WRK_CLIENTES]
+	[dbo].[WRK_CLIENTES]
 
 -- =============================================
 -- Create Table
 -- =============================================
 
-CREATE TABLE WRK_CLIENTES
+CREATE TABLE [dbo].[WRK_CLIENTES]
 (
 	[RowNumber]   INT IDENTITY
   , [Customer ID] VARCHAR(100)
@@ -44,13 +44,13 @@ CREATE TABLE WRK_CLIENTES
 -- =============================================
 
 TRUNCATE TABLE
-	[DS_TRAINNING].[dbo].[WRK_CLIENTES]
+	[dbo].[WRK_CLIENTES]
 
 -- =============================================
 -- Inserting data into the table
 -- =============================================
 
-INSERT INTO [DS_TRAINNING].[dbo].[WRK_CLIENTES]
+INSERT INTO [dbo].[WRK_CLIENTES]
 (
 	[Customer ID]
   , [City]
@@ -65,7 +65,7 @@ SELECT
   , [Gender]
   , [Age]
 FROM
-	[DS_TRAINNING].[dbo].[RAW_Clientes_20170811]
+	[dbo].[RAW_Clientes_20170811]
 
 END
 GO
