@@ -1,0 +1,19 @@
+SELECT
+	COUNT(*)
+FROM
+	[DS_TRAINNING].[dbo].[RAW_Transacoes_20170811]
+GO
+
+
+SELECT
+	*
+FROM
+	[DS_TRAINNING].[dbo].[RAW_Transacoes_20170811]
+GO
+
+
+SELECT
+	*
+FROM
+	[DS_TRAINNING].[dbo].[RAW_Clientes_20170811]
+GO
