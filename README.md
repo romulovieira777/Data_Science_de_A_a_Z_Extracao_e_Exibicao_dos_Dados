@@ -9,6 +9,7 @@
 - [Seção 06 - Infraestrutura e Segurança](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_06_Infraestrutura_e_Seguran%C3%A7a)
 - [Seção 07 - Tratamento de Dados - O que Você Realmente Precisa Saber](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_07_Tratamento_de_Dados_O_que_Voc%C3%AA_Realmente_Precisa_Saber)
 - [Seção 08 - Criando um Ambiente Work](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_08_Criando_um_Ambiente_Work)
+- [Seção 09 - Aumentando a Performace](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_09_Aumentando_a_Performace)
 
 
 Link para o curso na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
