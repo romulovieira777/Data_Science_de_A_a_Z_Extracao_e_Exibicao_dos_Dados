@@ -1,15 +1,16 @@
 # Data Science de A √† Z - Extra√ß√£o e Exibi√ß√£o dos Dados üë®‚Äçüíª ü§ñüëΩüõ†Ô∏è‚öôÔ∏è:bar_chart: :books: :game_die: ‚òÅÔ∏è
 ## Curso Data Science de A √† Z - Extra√ß√£o e Exibi√ß√£o dos Dados na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
 ### :boom: Topics covered during the course were :rocket:
-- [Se√ß√£o 01 - Introdu√ß√£o a Data Science](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_01_Introdu%C3%A7%C3%A3o_a_Data_Science)
-- [Se√ß√£o 02 - A Profiss√£o de Cientista de Dados](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_02_A_Profiss%C3%A3o_de_Cientista_de_Dados)
-- [Se√ß√£o 03 - Montando o Ambiente](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_03_Montando_o_Ambiente)
-- [Se√ß√£o 04 - Organiza√ß√£o de Projetos de Data Science](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_04_Organiza%C3%A7%C3%A3o_de_Projetos_de_Data_Science)
-- [Se√ß√£o 05 - Organiza√ß√£o de ETL](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_05_Organiza%C3%A7%C3%A3o_de_ETL)
-- [Se√ß√£o 06 - Infraestrutura e Seguran√ßa](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_06_Infraestrutura_e_Seguran%C3%A7a)
-- [Se√ß√£o 07 - Tratamento de Dados - O que Voc√™ Realmente Precisa Saber](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_07_Tratamento_de_Dados_O_que_Voc%C3%AA_Realmente_Precisa_Saber)
-- [Se√ß√£o 08 - Criando um Ambiente Work](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_08_Criando_um_Ambiente_Work)
-- [Se√ß√£o 09 - Aumentando a Performace](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_09_Aumentando_a_Performace)
+- [SeÁ„o 01 - IntroduÁ„o a Data Science](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_01_Introdu%C3%A7%C3%A3o_a_Data_Science)
+- [SeÁ„o 02 - A Profiss„o de Cientista de Dados](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_02_A_Profiss%C3%A3o_de_Cientista_de_Dados)
+- [SeÁ„o 03 - Montando o Ambiente](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_03_Montando_o_Ambiente)
+- [SeÁ„o 04 - OrganizaÁ„o de Projetos de Data Science](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_04_Organiza%C3%A7%C3%A3o_de_Projetos_de_Data_Science)
+- [SeÁ„o 05 - OrganizaÁ„o de ETL](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_05_Organiza%C3%A7%C3%A3o_de_ETL)
+- [SeÁ„o 06 - Infraestrutura e SeguranÁa](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_06_Infraestrutura_e_Seguran%C3%A7a)
+- [SeÁ„o 07 - Tratamento de Dados - O que VocÍ Realmente Precisa Saber](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_07_Tratamento_de_Dados_O_que_Voc%C3%AA_Realmente_Precisa_Saber)
+- [SeÁ„o 08 - Criando um Ambiente Work](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_08_Criando_um_Ambiente_Work)
+- [SeÁ„o 09 - Aumentando a Performace](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_09_Aumentando_a_Performace)
+- [SeÁ„o 10 - Dados Versionados - Como Fazer?]()
 
 
 Link para o curso na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
