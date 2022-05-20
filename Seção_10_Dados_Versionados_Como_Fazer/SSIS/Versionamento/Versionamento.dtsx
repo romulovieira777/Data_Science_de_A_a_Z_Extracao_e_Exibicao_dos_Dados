@@ -11,8 +11,8 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{3DC83AE5-73CA-4D67-AFFA-B4053F198188}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{ECD55A9E-937B-4D62-8529-E6EB80F4A6EE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -512,11 +512,11 @@
               version="1">
               <components>
                 <component
-                  refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB"
+                  refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA"
                   componentClassID="Microsoft.OLEDBCommand"
                   contactInfo="Comando OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;2"
                   description="Executa uma instrução SQL para cada linha em um fluxo de dados. Por exemplo, chame um procedimento armazenado 'new employee setup' para cada linha da tabela 'new employees'. Observação: a execução de uma instrução SQL para cada linha de um fluxo de dados grande pode demorar."
-                  name="Comando OLE DB"
+                  name="ABRE VIGENCIA"
                   usesDispositions="true"
                   version="2">
                   <properties>
@@ -529,7 +529,18 @@
                       description="O comando SQL a ser executado."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO [dbo].[WRK_PRODUTOS_ESTOQUE]
+(
+    [CODIGO]
+  , [DESC_PROUTO]
+  , [DESC_ABV]
+  , [Unidades]
+  , [INI_VIGENCIA]
+)
+VALUES
+(
+    ?, ?, ?, ?, ?
+)</property>
                     <property
                       dataType="System.Int32"
                       description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
@@ -537,46 +548,153 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Connections[OleDbConnection]"
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-F4GI462\SQLSERVER2019.DS_TRAINNING]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-F4GI462\SQLSERVER2019.DS_TRAINNING]"
                       description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
                       name="OleDbConnection" />
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Inputs[Entrada de Comando OLE DB]"
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB]"
                       errorOrTruncationOperation="Execução de Comando"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="Entrada de Comando OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[CODIGO_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="CODIGO_RAW"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[CODIGO_RAW]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[DESC_PROUTO_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="DESC_PROUTO_RAW"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_1]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[DESC_PROUTO_RAW]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[DESC_ABV_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="DESC_ABV_RAW"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_2]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[DESC_ABV_RAW]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[Unidades_raw]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="Unidades_raw"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_3]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[Unidades_raw]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[V_INICIOVIGENCIA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="V_INICIOVIGENCIA"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_4]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS.Outputs[Saída de Coluna Derivada].Columns[V_INICIOVIGENCIA]" />
+                      </inputColumns>
                       <externalMetadataColumns
-                        isUsed="True" />
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_4]"
+                          dataType="dbTimeStamp"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Outputs[Saída de Comando OLE DB]"
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Outputs[Saída de Comando OLE DB]"
                       exclusionGroup="1"
                       name="Saída de Comando OLE DB"
-                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Inputs[Entrada de Comando OLE DB]">
+                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB]">
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Outputs[Saída de Erro de Comando OLE DB]"
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Outputs[Saída de Erro de Comando OLE DB]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Saída de Erro de Comando OLE DB"
-                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Inputs[Entrada de Comando OLE DB]">
+                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1296,6 +1414,128 @@
                           refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI WRK.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI WRK.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="Comando OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;2"
+                  description="Executa uma instrução SQL para cada linha em um fluxo de dados. Por exemplo, chame um procedimento armazenado 'new employee setup' para cada linha da tabela 'new employees'. Observação: a execução de uma instrução SQL para cada linha de um fluxo de dados grande pode demorar."
+                  name="FECHAR VIGENCIA"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="O comando SQL a ser executado."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE
+	[DS_TRAINNING].[dbo].[WRK_PRODUTOS_ESTOQUE]
+SET
+	[FIM_VIGENCIA] = ?
+WHERE
+	[CODIGO] = ? AND [FIM_VIGENCIA] IS NULL;</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-F4GI462\SQLSERVER2019.DS_TRAINNING]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-F4GI462\SQLSERVER2019.DS_TRAINNING]"
+                      description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB]"
+                      errorOrTruncationOperation="Execução de Comando"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de Comando OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[V_FIMVIGENCIA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="V_FIMVIGENCIA"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS.Outputs[Saída de Coluna Derivada].Columns[V_FIMVIGENCIA]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB].Columns[CODIGO_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="CODIGO_RAW"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_1]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[CODIGO_RAW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_0]"
+                          dataType="dbTimeStamp"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Comando OLE DB]"
+                      exclusionGroup="1"
+                      name="Saída de Comando OLE DB"
+                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Erro de Comando OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Saída de Erro de Comando OLE DB"
+                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -2113,12 +2353,6 @@
                           cachedName="V_INICIOVIGENCIA"
                           externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS.Inputs[Entrada de Destino OLE DB].ExternalColumns[INI_VIGENCIA]"
                           lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS.Outputs[Saída de Coluna Derivada].Columns[V_INICIOVIGENCIA]" />
-                        <inputColumn
-                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS.Inputs[Entrada de Destino OLE DB].Columns[V_FIMVIGENCIA]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="V_FIMVIGENCIA"
-                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS.Inputs[Entrada de Destino OLE DB].ExternalColumns[FIM_VIGENCIA]"
-                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS.Outputs[Saída de Coluna Derivada].Columns[V_FIMVIGENCIA]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2186,6 +2420,150 @@
                     </output>
                   </outputs>
                 </component>
+                <component
+                  refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="Comando OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos os Direitos Reservados; http://www.microsoft.com/sql/support;2"
+                  description="Executa uma instrução SQL para cada linha em um fluxo de dados. Por exemplo, chame um procedimento armazenado 'new employee setup' para cada linha da tabela 'new employees'. Observação: a execução de uma instrução SQL para cada linha de um fluxo de dados grande pode demorar."
+                  name="UPDATE SIMPLES"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="O comando SQL a ser executado."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[WRK_PRODUTOS_ESTOQUE]
+SET [DESC_PROUTO] = ?, [DESC_ABV] = ?
+WHERE [CODIGO] = ? AND [FIM_VIGENCIA] IS NULL</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-F4GI462\SQLSERVER2019.DS_TRAINNING]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-F4GI462\SQLSERVER2019.DS_TRAINNING]"
+                      description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB]"
+                      errorOrTruncationOperation="Execução de Comando"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de Comando OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].Columns[DESC_PROUTO_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="DESC_PROUTO_RAW"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[DESC_PROUTO_RAW]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].Columns[DESC_ABV_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="DESC_ABV_RAW"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_1]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[DESC_ABV_RAW]" />
+                        <inputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].Columns[CODIGO_RAW]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1000"
+                          cachedName="CODIGO_RAW"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_2]"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Outputs[Saída da Junção de Mesclagem].Columns[CODIGO_RAW]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB].ExternalColumns[Param_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1000"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Informações de parâmetro. Corresponde os valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Outputs[Saída de Comando OLE DB]"
+                      exclusionGroup="1"
+                      name="Saída de Comando OLE DB"
+                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Outputs[Saída de Erro de Comando OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Saída de Erro de Comando OLE DB"
+                      synchronousInputId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Outputs[Saída de Erro de Comando OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
               </components>
               <paths>
                 <path
@@ -2198,6 +2576,11 @@
                   endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN.Inputs[Entrada Direita da Junção de Mesclagem]"
                   name="Classificar Saída"
                   startId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ORDENA WRK.Outputs[Classificar Saída]" />
+                <path
+                  refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[HISTORICO]"
+                  endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Inputs[Entrada de Comando OLE DB]"
+                  name="HISTORICO"
+                  startId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Divisão Condicional.Outputs[HISTORICO]" />
                 <path
                   refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[INSERT]"
                   endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS.Inputs[Entrada de Destino OLE DB]"
@@ -2214,6 +2597,11 @@
                   name="Saída de Coluna Derivada"
                   startId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS.Outputs[Saída de Coluna Derivada]" />
                 <path
+                  refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Comando OLE DB]"
+                  endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA.Inputs[Entrada de Comando OLE DB]"
+                  name="Saída de Comando OLE DB"
+                  startId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA.Outputs[Saída de Comando OLE DB]" />
+                <path
                   refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
                   endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ORDERNA RAW.Inputs[Classificar Entrada]"
                   name="Saída de Origem OLE DB"
@@ -2225,7 +2613,7 @@
                   startId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI WRK.Outputs[Saída de Origem OLE DB]" />
                 <path
                   refId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[UPDATE]"
-                  endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB.Inputs[Entrada de Comando OLE DB]"
+                  endId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES.Inputs[Entrada de Comando OLE DB]"
                   name="UPDATE"
                   startId="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Divisão Condicional.Outputs[UPDATE]" />
               </paths>
@@ -2256,15 +2644,15 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="185,42"
-          Id="Package\FASE 01 CSV TO RAW\Tarefa Fluxo de Dados"
-          TopLeft="33,130" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="163,42"
           Id="Package\FASE 01 CSV TO RAW\Execute SQL Task"
           TopLeft="42,23" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\FASE 01 CSV TO RAW\Tarefa Fluxo de Dados"
+          TopLeft="33,130" />
         <EdgeLayout
           Id="Package\FASE 01 CSV TO RAW.PrecedenceConstraints[Constraint]"
           TopLeft="124.5,65">
@@ -2293,7 +2681,7 @@
           PanelSize="284,227"
           Size="284,270"
           Id="Package\FASE 01 CSV TO RAW"
-          TopLeft="137,132" />
+          TopLeft="201,132" />
         <NodeLayout
           Size="185,42"
           Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados"
@@ -2304,10 +2692,10 @@
           PanelSize="297,231"
           Size="297,274"
           Id="Package\FASE 02 RAW TO WRK"
-          TopLeft="476,135" />
+          TopLeft="540,135" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="421,269.5">
+          TopLeft="485,269.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2327,6 +2715,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="FASE 01 TRUNCA A TABELA RAW E CARREGA OS DADOS DO CSV"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="274,60"
+          Id="85d18405-6a02-4d09-8196-29005540c3ea"
+          TopLeft="202,33" />
+        <AnnotationLayout
+          Text="FASE 02 CARREGA A TABELA WORK VERSIONANDO OS REGISTROS QUANDO DA ALTERAÇÃO NO CAMPO UNIDADES E REALIZANDO UPDATE SIMPLES QUANDO DOS CAMPOS DE DESCRIÇÃO"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="292,104"
+          Id="8a1115ea-4d01-46c1-b7ed-212919aa92c5"
+          TopLeft="546,24" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2334,7 +2736,7 @@
     design-time-name="Package\FASE 01 CSV TO RAW\Tarefa Fluxo de Dados">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="206,42"
           Id="Package\FASE 01 CSV TO RAW\Tarefa Fluxo de Dados\Origem de Arquivo Simples"
@@ -2374,9 +2776,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2401,24 +2801,62 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="140,42"
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI RAW"
-          TopLeft="294,29" />
+          Size="173,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS"
+          TopLeft="546,308" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN"
+          TopLeft="154,226" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS"
+          TopLeft="151,308" />
         <NodeLayout
           Size="140,42"
           Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI WRK"
-          TopLeft="521,34" />
+          TopLeft="266,41" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Divisão Condicional"
+          TopLeft="327,307" />
         <NodeLayout
           Size="152,42"
           Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ORDERNA RAW"
-          TopLeft="286,135" />
+          TopLeft="31,142" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI RAW"
+          TopLeft="39,36" />
         <NodeLayout
           Size="146,42"
           Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ORDENA WRK"
-          TopLeft="518,137" />
+          TopLeft="263,144" />
+        <EdgeLayout
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB1]"
+          TopLeft="336,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB]"
-          TopLeft="363,71">
+          TopLeft="108,78">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2439,34 +2877,116 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Origem OLE DB1]"
-          TopLeft="591,76">
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Coluna Derivada]"
+          TopLeft="289,328.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="38,0"
               Start="0,0"
-              End="0,53.5">
+              End="30.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="30.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="7.25,5,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\MERGE JOIN"
-          TopLeft="409,219" />
+        <EdgeLayout
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída da Junção de Mesclagem]"
+          TopLeft="221.75,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,8.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[INSERT]"
+          TopLeft="497,328.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,0"
+              Start="0,0"
+              End="41.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.56736328125,5,52.6347265625,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Classificar Saída1]"
+          TopLeft="336,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90.6666666666667,40"
+              Start="0,0"
+              End="-90.6666666666667,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7268847795164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7268847795164"
+                    Point2="0,23.7268847795164"
+                    Point3="-4,23.7268847795164" />
+                  <mssgle:LineSegment
+                    End="-86.6666666666667,23.7268847795164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86.6666666666667,23.7268847795164"
+                    Point2="-90.6666666666667,23.7268847795164"
+                    Point3="-90.6666666666667,27.7268847795164" />
+                  <mssgle:LineSegment
+                    End="-90.6666666666667,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.3333333333333,28.7268847795164,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Classificar Saída]"
-          TopLeft="362,177">
+          TopLeft="107,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2498,47 +3018,13 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Classificar Saída1]"
-          TopLeft="591,179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-90.6666666666667,40"
-              Start="0,0"
-              End="-90.6666666666667,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.7268847795164" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7268847795164"
-                    Point2="0,23.7268847795164"
-                    Point3="-4,23.7268847795164" />
-                  <mssgle:LineSegment
-                    End="-86.6666666666667,23.7268847795164" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-86.6666666666667,23.7268847795164"
-                    Point2="-90.6666666666667,23.7268847795164"
-                    Point3="-90.6666666666667,27.7268847795164" />
-                  <mssgle:LineSegment
-                    End="-90.6666666666667,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="138,42"
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\CRIA DATAS"
-          TopLeft="406,301" />
+          Size="162,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\UPDATE SIMPLES"
+          TopLeft="329,389" />
         <EdgeLayout
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída da Junção de Mesclagem]"
-          TopLeft="476.75,261">
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[UPDATE]"
+          TopLeft="411,349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2555,108 +3041,82 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-18.66189453125,11.5390625,37.3237890625,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="170,42"
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Divisão Condicional"
-          TopLeft="582,300" />
+          Size="168,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\FECHAR VIGENCIA"
+          TopLeft="427,146" />
         <EdgeLayout
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Coluna Derivada]"
-          TopLeft="544,321.5">
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[HISTORICO]"
+          TopLeft="385,307">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38,0"
+              EndConnector="126,-119"
               Start="0,0"
-              End="30.5,0">
+              End="126,-111.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="30.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="173,42"
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS"
-          TopLeft="663,207" />
-        <EdgeLayout
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[INSERT]"
-          TopLeft="667,300">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="82.5,-51"
-              Start="0,0"
-              End="82.5,-43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-21.5" />
+                    End="0,-44.2657342657343" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-21.5"
-                    Point2="0,-25.5"
-                    Point3="4,-25.5" />
+                    Point1="0,-44.2657342657343"
+                    Point2="0,-48.2657342657343"
+                    Point3="4,-48.2657342657343" />
                   <mssgle:LineSegment
-                    End="78.5,-25.5" />
+                    End="122,-48.2657342657343" />
                   <mssgle:CubicBezierSegment
-                    Point1="78.5,-25.5"
-                    Point2="82.5,-25.5"
-                    Point3="82.5,-29.5" />
+                    Point1="122,-48.2657342657343"
+                    Point2="126,-48.2657342657343"
+                    Point3="126,-52.2657342657343" />
                   <mssgle:LineSegment
-                    End="82.5,-43.5" />
+                    End="126,-111.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="23.6596875,-20.5,35.180625,9.5341796875"
+              BoundingBox="36.5321875,-43.2657342657343,52.935625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="162,42"
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\Comando OLE DB"
-          TopLeft="590,393" />
+          Size="155,42"
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\ABRE VIGENCIA"
+          TopLeft="631,146" />
         <EdgeLayout
-          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[UPDATE]"
-          TopLeft="669,342">
+          Id="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados.Paths[Saída de Comando OLE DB]"
+          TopLeft="595,167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51"
+              EndConnector="36,0"
               Start="0,0"
-              End="0,43.5">
+              End="28.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.5" />
+                    End="28.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.66189453125,17.0390625,37.3237890625,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI RAW">
+    design-time-name="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2682,7 +3142,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\REGISTROS NOVOS">
+    design-time-name="Package\FASE 02 RAW TO WRK\Tarefa Fluxo de Dados\EXTRAI RAW">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
