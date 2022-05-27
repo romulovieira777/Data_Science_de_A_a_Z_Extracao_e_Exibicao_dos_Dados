@@ -1,5 +1,5 @@
-# Data Science de A Ã  Z - ExtraÃ§Ã£o e ExibiÃ§Ã£o dos Dados ğŸ‘¨â€ğŸ’» ğŸ¤–ğŸ‘½ğŸ› ï¸âš™ï¸:bar_chart: :books: :game_die: â˜ï¸
-## Curso Data Science de A Ã  Z - ExtraÃ§Ã£o e ExibiÃ§Ã£o dos Dados na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
+# Data Science de A a Z - Extraçao e Exibição dos Dados :bar_chart: :books: :game_die:
+## Curso Data Science de A a Z - Extraçao e Exibição dos Dados na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
 ### :boom: Topics covered during the course were :rocket:
 - [Seção 01 - Introdução a Data Science](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_01_Introdu%C3%A7%C3%A3o_a_Data_Science)
 - [Seção 02 - A Profissão de Cientista de Dados](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_02_A_Profiss%C3%A3o_de_Cientista_de_Dados)
@@ -11,6 +11,8 @@
 - [Seção 08 - Criando um Ambiente Work](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_08_Criando_um_Ambiente_Work)
 - [Seção 09 - Aumentando a Performace](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_09_Aumentando_a_Performace)
 - [Seção 10 - Dados Versionados - Como Fazer?](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_10_Dados_Versionados_Como_Fazer)
+- [Seção 11 - Git e GitHub](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_11_Git_e_GitHub)
+- [Seção 12 - Python para Dados](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_12_Python_para_Dados)
 
 
 Link para o curso na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
