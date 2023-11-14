@@ -16,5 +16,6 @@
 - [Seção 13 - Dataset - O Caso Titanic](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_13_Dataset_O_Caso_Titanic)
 - [Seção 14 - Python - Biblioteca Gerais](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_14_Python_Bibliotecas_Gerais)
 - [Seção 15 - Algebra Linear - NumPy](https://github.com/romulovieira777/Data_Science_de_A_a_Z_Extracao_e_Exibicao_dos_Dados/tree/main/Se%C3%A7%C3%A3o_15_Algebra_Linear_NumPy)
+- [Seção 16 - Pandas para Manipulação de Dados]()
 
 Link para o curso na [Udemy](https://www.udemy.com/course/curso-data-science-completo/)
